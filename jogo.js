@@ -1,5 +1,6 @@
 var nome = [];
 var resposta = [];
+var pontuacao = 0;
 var back = document.querySelector('.back');
 var animacao = document.querySelector('.animacao');
 var titulo_materia = document.querySelector('#h2-pergunta');
@@ -157,18 +158,41 @@ function confirmar_inicio() {
     }else{
         document.querySelector('.inicio').style.display = 'none';
         nome[0] = input_nome;
-        animation();
+        animation(pontuacao);
     } 
 }
 
-function animation(){
+function animation(pontuacao){
+    back.style.display = 'none';
+    let box_animacao = document.querySelector('.box-animacao1');
+    
+    switch(pontuacao){
+        case 0: box_animacao.innerText = '1 MIL'; break;
+        case 1: box_animacao.innerText = '2 MIL'; break;
+        case 2: box_animacao.innerText = '3 MIL'; break;
+        case 3: box_animacao.innerText = '4 MIL'; break;
+        case 4: box_animacao.innerText = '5 MIL'; break;
+        case 5: box_animacao.innerText = '10 MIL'; break;
+        case 6: box_animacao.innerText = '20 MIL'; break;
+        case 7: box_animacao.innerText = '30 MIL'; break;
+        case 8: box_animacao.innerText = '40 MIL'; break;
+        case 9: box_animacao.innerText = '50 MIL'; break;
+        case 10: box_animacao.innerText = '100 MIL'; break;
+        case 11: box_animacao.innerText = '200 MIL'; break;
+        case 12: box_animacao.innerText = '300 MIL'; break;
+        case 13: box_animacao.innerText = '400 MIL'; break;
+        case 14: box_animacao.innerText = '500 MIL'; break;
+        case 15: box_animacao.innerText = '1 MILHÃO'; break;
+    }
+
     animacao.style.display = 'flex';
-    animacao.style.transform = 'scale(1.3)'
+    animacao.style.transform = 'scale(1.3)';
 
     const time = setTimeout(function() {
         animacao.style.display = 'none';
         const timer = setTimeout(function() {
             back.style.display = 'flex';
+            progresso(pontuacao);
             esc_materia();
         }, 1000)
     }, 2900)
@@ -184,13 +208,11 @@ function esc_materia(){
                 if(dados.musica.length > 0){
                     return escolhido;
                 }else{
-                    alert('Não existem mais perguntas sobre Música, direcionando para outra matéria...');
                     if(dados.musica.length == 0 && dados.esporte.length == 0 && dados.geografia.length == 0 && dados.historia.length == 0 && dados.conhecimentos_gerais.length == 0){
                         alert('Infelizmente as perguntas se esgotaram, Você esta desclassificado!');
-                        // relogar a página
+                        location.reload();
                     }else{
                         esc_materia();
-                        // animation();
                     }                  
                 } 
                 break;
@@ -199,13 +221,11 @@ function esc_materia(){
                 if(dados.esporte.length > 0){
                     return escolhido;
                 }else{
-                    alert('Não existem mais perguntas sobre Esporte, direcionando para outra matéria...');
                     if(dados.musica.length == 0 && dados.esporte.length == 0 && dados.geografia.length == 0 && dados.historia.length == 0 && dados.conhecimentos_gerais.length == 0){
                         alert('Infelizmente as perguntas se esgotaram, Você esta desclassificado!');
-                        // relogar a página
+                        location.reload();
                     }else{
                         esc_materia();
-                        // animation();
                     }                    
                 } 
                 break;
@@ -214,13 +234,11 @@ function esc_materia(){
                 if(dados.geografia.length > 0){
                     return escolhido;
                 }else{
-                    alert('Não existem mais perguntas sobre Geografia, direcionando para outra matéria...');
                     if(dados.musica.length == 0 && dados.esporte.length == 0 && dados.geografia.length == 0 && dados.historia.length == 0 && dados.conhecimentos_gerais.length == 0){
                         alert('Infelizmente as perguntas se esgotaram, Você esta desclassificado!');
-                        // relogar a página
+                        location.reload();
                     }else{
                         esc_materia();
-                        // animation();
                     }                  
                 } 
                 break;
@@ -229,13 +247,11 @@ function esc_materia(){
                 if(dados.historia.length > 0){
                     return escolhido;
                 }else{
-                    alert('Não existem mais perguntas sobre História, direcionando para outra matéria...');
                     if(dados.musica.length == 0 && dados.esporte.length == 0 && dados.geografia.length == 0 && dados.historia.length == 0 && dados.conhecimentos_gerais.length == 0){
                         alert('Infelizmente as perguntas se esgotaram, Você esta desclassificado!');
-                        // relogar a página
+                        location.reload();
                     }else{
                         esc_materia();
-                        // animation();
                     }                    
                 } 
                 break;
@@ -244,13 +260,11 @@ function esc_materia(){
                 if(dados.conhecimentos_gerais.length > 0){
                     return escolhido;
                 }else{
-                    alert('Não existem mais perguntas sobre Conhecimentos Gerais, direcionando para outra matéria...');
                     if(dados.musica.length == 0 && dados.esporte.length == 0 && dados.geografia.length == 0 && dados.historia.length == 0 && dados.conhecimentos_gerais.length == 0){
                         alert('Infelizmente as perguntas se esgotaram, Você esta desclassificado!');
-                        // relogar a página
+                        location.reload();
                     }else{
                         esc_materia();
-                        // animation();
                     }                    
                 } 
                 break;
@@ -396,8 +410,13 @@ function abilitar(){
     opcao_d.disabled = false;
 };
 
+document.addEventListener('keypress', function(e){
+    if(e.which == 13){
+        confirmar_resposta()
+    }
+}, false);
+
 function confirmar_resposta(){
-    desabilitar();
     var sel = '';
     if(opcao_a.style.backgroundColor == 'white'){
         sel = 'opc_a';
@@ -408,122 +427,137 @@ function confirmar_resposta(){
     }else if(opcao_d.style.backgroundColor == 'white'){
         sel = 'opc_d';
     }
-
-    switch(sel){
-        case 'opc_a':
-            if(opcao_a.innerText == resposta[0]){
-                const timer = setTimeout(function() {
-                    opcao_a.style.backgroundColor = 'greenyellow';
-                    opcao_b.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
-                    opcao_c.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
-                    opcao_d.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
-                    time()
-                }, 3000)
-            }else{
-                const timer = setTimeout(function() {
-                    opcao_a.style.backgroundColor = 'red';
-                    opcao_b.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
-                    opcao_c.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
-                    opcao_d.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
-                    if(opcao_b.innerText == resposta[0]){
-                        opcao_b.style.backgroundColor = 'greenyellow';
-                    }if(opcao_c.innerText == resposta[0]){
-                        opcao_c.style.backgroundColor = 'greenyellow';
-                    }if(opcao_d.innerText == resposta[0]){
-                        opcao_d.style.backgroundColor = 'greenyellow';
-                    }
-                    time()
-                }, 3000)
-            }
-            break;
-
-        case 'opc_b':
-            if(opcao_b.innerText == resposta[0]){
-                const timer = setTimeout(function() {
-                    opcao_b.style.backgroundColor = 'greenyellow';
-                    opcao_a.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
-                    opcao_c.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
-                    opcao_d.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
-                    time();
-                }, 3000)
-            }else{
-                const timer = setTimeout(function() {
-                    opcao_b.style.backgroundColor = 'red';
-                    opcao_a.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
-                    opcao_c.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
-                    opcao_d.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
-                    if(opcao_a.innerText == resposta[0]){
+    if(sel == ''){
+        if(animacao.style.display == 'none'){
+            alert('Por favor, selecione uma resposta!')
+        }
+    }else{
+        desabilitar();
+        switch(sel){
+            case 'opc_a':
+                if(opcao_a.innerText == resposta[0]){
+                    const timer = setTimeout(function() {
                         opcao_a.style.backgroundColor = 'greenyellow';
-                    }if(opcao_c.innerText == resposta[0]){
-                        opcao_c.style.backgroundColor = 'greenyellow';
-                    }if(opcao_d.innerText == resposta[0]){
-                        opcao_d.style.backgroundColor = 'greenyellow';
-                    }
-                    time();
-                }, 3000)
-            }
-            break;
-
-        case 'opc_c':
-            if(opcao_c.innerText == resposta[0]){
-                const timer = setTimeout(function() {
-                    opcao_c.style.backgroundColor = 'greenyellow';
-                    opcao_b.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
-                    opcao_a.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
-                    opcao_d.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
-                    time();
-                }, 3000)
-            }else{
-                const timer = setTimeout(function() {
-                    opcao_c.style.backgroundColor = 'red';
-                    opcao_b.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
-                    opcao_a.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
-                    opcao_d.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
-                    if(opcao_a.innerText == resposta[0]){
-                        opcao_a.style.backgroundColor = 'greenyellow';
-                    }if(opcao_b.innerText == resposta[0]){
+                        opcao_b.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
+                        opcao_c.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
+                        opcao_d.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
+                        pontuacao++
+                        progresso(pontuacao);
+                        time()
+                    }, 3000)
+                }else{
+                    const timer = setTimeout(function() {
+                        opcao_a.style.backgroundColor = 'red';
+                        opcao_b.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
+                        opcao_c.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
+                        opcao_d.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
+                        if(opcao_b.innerText == resposta[0]){
+                            opcao_b.style.backgroundColor = 'greenyellow';
+                        }if(opcao_c.innerText == resposta[0]){
+                            opcao_c.style.backgroundColor = 'greenyellow';
+                        }if(opcao_d.innerText == resposta[0]){
+                            opcao_d.style.backgroundColor = 'greenyellow';
+                        }
+                        time()
+                    }, 3000)
+                }
+                break;
+    
+            case 'opc_b':
+                if(opcao_b.innerText == resposta[0]){
+                    const timer = setTimeout(function() {
                         opcao_b.style.backgroundColor = 'greenyellow';
-                    }if(opcao_d.innerText == resposta[0]){
-                        opcao_d.style.backgroundColor = 'greenyellow';
-                    }
-                    time();
-                }, 3000)
-            }
-            break;
-
-        case 'opc_d':
-            if(opcao_d.innerText == resposta[0]){
-                const timer = setTimeout(function() {
-                    opcao_d.style.backgroundColor = 'greenyellow';
-                    opcao_b.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
-                    opcao_c.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
-                    opcao_a.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
-                    time();
-                }, 3000)
-            }else{
-                const timer = setTimeout(function() {
-                    opcao_d.style.backgroundColor = 'red';
-                    opcao_b.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
-                    opcao_c.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
-                    opcao_a.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
-                    if(opcao_a.innerText == resposta[0]){
-                        opcao_a.style.backgroundColor = 'greenyellow';
-                    }if(opcao_c.innerText == resposta[0]){
+                        opcao_a.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
+                        opcao_c.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
+                        opcao_d.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
+                        pontuacao++
+                        progresso(pontuacao);
+                        time();
+                    }, 3000)
+                }else{
+                    const timer = setTimeout(function() {
+                        opcao_b.style.backgroundColor = 'red';
+                        opcao_a.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
+                        opcao_c.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
+                        opcao_d.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
+                        if(opcao_a.innerText == resposta[0]){
+                            opcao_a.style.backgroundColor = 'greenyellow';
+                        }if(opcao_c.innerText == resposta[0]){
+                            opcao_c.style.backgroundColor = 'greenyellow';
+                        }if(opcao_d.innerText == resposta[0]){
+                            opcao_d.style.backgroundColor = 'greenyellow';
+                        }
+                        time();
+                    }, 3000)
+                }
+                break;
+    
+            case 'opc_c':
+                if(opcao_c.innerText == resposta[0]){
+                    const timer = setTimeout(function() {
                         opcao_c.style.backgroundColor = 'greenyellow';
-                    }if(opcao_b.innerText == resposta[0]){
-                        opcao_b.style.backgroundColor = 'greenyellow';
-                    }
-                    time();
-                }, 3000)
-            }
-            break; 
-    }  
+                        opcao_b.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
+                        opcao_a.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
+                        opcao_d.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
+                        pontuacao++
+                        progresso(pontuacao);
+                        time();
+                    }, 3000)
+                }else{
+                    const timer = setTimeout(function() {
+                        opcao_c.style.backgroundColor = 'red';
+                        opcao_b.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
+                        opcao_a.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
+                        opcao_d.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
+                        if(opcao_a.innerText == resposta[0]){
+                            opcao_a.style.backgroundColor = 'greenyellow';
+                        }if(opcao_b.innerText == resposta[0]){
+                            opcao_b.style.backgroundColor = 'greenyellow';
+                        }if(opcao_d.innerText == resposta[0]){
+                            opcao_d.style.backgroundColor = 'greenyellow';
+                        }
+                        time();
+                    }, 3000)
+                }
+                break;
+    
+            case 'opc_d':
+                if(opcao_d.innerText == resposta[0]){
+                    const timer = setTimeout(function() {
+                        opcao_d.style.backgroundColor = 'greenyellow';
+                        opcao_b.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
+                        opcao_c.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
+                        opcao_a.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
+                        pontuacao++
+                        progresso(pontuacao);
+                        time();
+                    }, 3000)
+                }else{
+                    const timer = setTimeout(function() {
+                        opcao_d.style.backgroundColor = 'red';
+                        opcao_b.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
+                        opcao_c.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
+                        opcao_a.style.backgroundColor = 'rgba(255, 255, 255, 0.808';
+                        if(opcao_a.innerText == resposta[0]){
+                            opcao_a.style.backgroundColor = 'greenyellow';
+                        }if(opcao_c.innerText == resposta[0]){
+                            opcao_c.style.backgroundColor = 'greenyellow';
+                        }if(opcao_b.innerText == resposta[0]){
+                            opcao_b.style.backgroundColor = 'greenyellow';
+                        }
+                        time();
+                    }, 3000)
+                }
+                break; 
+        }
+    }
+     
 }
 
 function time(){
     const time = setTimeout(function() {
-        deletar()
-        esc_materia();
+        deletar();
+        animation(pontuacao)
         abilitar();
     }, 2000)
 }
@@ -532,23 +566,26 @@ function deletar(){
     switch(resposta[1]){
         case 'dados.musica':
             dados.musica.splice(resposta[2], 1);  
-            alert(dados.musica.length)
             break;   
         case 'dados.esporte':
             dados.esporte.splice(resposta[2], 1);  
-            alert(dados.esporte.length)
             break;           
         case 'dados.geografia':
             dados.geografia.splice(resposta[2], 1);  
-            alert(dados.geografia.length)
             break;
         case 'dados.historia':
             dados.historia.splice(resposta[2], 1);  
-            alert(dados.historia.length)
             break;
         case 'dados.conhecimentos_gerais':
             dados.conhecimentos_gerais.splice(resposta[2], 1);  
-            alert(dados.conhecimentos_gerais.length)
             break;
     }
+}
+
+function progresso(pontuacao){
+    let box = document.querySelectorAll('.box');
+    for(let i=0; i < box.length; i++){
+        box[i].style.border = 'none';
+    }
+    box[pontuacao].style.border = '1px solid white';
 }
