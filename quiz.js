@@ -1,11 +1,13 @@
 var nome = '';
 var resposta = [];
+var abilitado = ['Abilitado','Abilitado','Abilitado'];
 var pontuacao = 0;
 var vidas = 3;
 var pular = 2;
 var vidas_btn = document.querySelector('.vida');
 var pular_btn = document.querySelectorAll('.pular');
 var parar_btn = document.querySelector('.parar');
+var q_vidas = document.querySelector('.q_vida');
 var back = document.querySelector('.back');
 var animacao = document.querySelector('.animacao');
 var titulo_materia = document.querySelector('#h2-pergunta');
@@ -404,6 +406,11 @@ function desabilitar(){
     opcao_b.disabled = true;
     opcao_c.disabled = true;
     opcao_d.disabled = true;
+    button.disabled = true;
+    parar_btn.disabled = true;
+    for(let i=0; i< pular_btn.length; i++){
+        pular_btn[i].disabled = true;
+    }
 };
 
 function abilitar(){
@@ -416,6 +423,12 @@ function abilitar(){
     opcao_c.disabled = false;
     opcao_d.disabled = false;
     button.disabled = false;
+    parar_btn.disabled = false;
+        for(let i=0; i< pular_btn.length; i++){
+            if(abilitado[i] == 'Abilitado'){
+                pular_btn[i].disabled = false;
+            }
+        }
 };
 
 document.addEventListener('keypress', function(e){
@@ -425,7 +438,6 @@ document.addEventListener('keypress', function(e){
 }, false);
 
 function confirmar_resposta(){
-    button.disabled = true;
     var sel = '';
     if(opcao_a.style.backgroundColor == 'white'){
         sel = 'opc_a';
@@ -596,17 +608,36 @@ function progresso(pontuacao){
     for(let i=0; i < box.length; i++){
         box[i].style.border = 'none';
     }
-    box[pontuacao].style.border = '1px solid white';
+    box[pontuacao].style.border = '2px solid rgb(47, 0, 255)';
 }
 
 function quant_vidas(){
     vidas--;
-    vidas_btn.innerText = vidas;
+    q_vidas.innerText = vidas;
     const timing = setTimeout(function() {
         if(vidas > 0){
             time();
         }else{
             alert('Suas vidas acabaram, você PERDEU!');
+            switch(pontuacao){
+                case 0: alert('Infelizmente você não ganhou nada!'); break;
+                case 1: alert('Você ganhou R$ 1 MIL'); break;
+                case 2: alert('Você ganhou R$ 2 MIL'); break;
+                case 3: alert('Você ganhou R$ 3 MIL'); break;
+                case 4: alert('Você ganhou R$ 4 MIL'); break;
+                case 5: alert('Você ganhou R$ 5 MIL'); break;
+                case 6: alert('Você ganhou R$ 5 MIL'); break;
+                case 7: alert('Você ganhou R$ 5 MIL'); break;
+                case 8: alert('Você ganhou R$ 5 MIL'); break;
+                case 9: alert('Você ganhou R$ 5 MIL'); break;
+                case 10: alert('Você ganhou R$ 50 MIL'); break;
+                case 11: alert('Você ganhou R$ 50 MIL'); break;
+                case 12: alert('Você ganhou R$ 50 MIL'); break;
+                case 13: alert('Você ganhou R$ 50 MIL'); break;
+                case 14: alert('Você ganhou R$ 50 MIL'); break;
+                case 15: alert('Você ganhou R$ 500 MIL'); break;
+                case 16: alert('Você ganhou R$ 500 MIL'); break;   
+            }
             location.reload();
         }
     }, 1000)
@@ -616,6 +647,7 @@ for(let i = 0; i < pular_btn.length; i++){
     pular_btn[i].addEventListener('click', function(){
         esc_materia();
         pular_btn[i].disabled = true;
+        abilitado[i] = 'Desabilitado';
     })
 }
 
@@ -639,7 +671,7 @@ parar_btn.addEventListener("click",function(){
             case 13: alert('Você ganhou R$ 300 MIL'); break;
             case 14: alert('Você ganhou R$ 400 MIL'); break;
             case 15: alert('Você ganhou R$ 500 MIL'); break;
-            case 16: balert('Você ganhou R$ 1 MILHÃO'); break;
+            case 16: alert('Você ganhou R$ 1 MILHÃO'); break;
         }
         location.reload();
     }, 1000)
