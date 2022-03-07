@@ -1,10 +1,16 @@
-var nome = [];
+var nome = '';
 var resposta = [];
 var pontuacao = 0;
+var vidas = 3;
+var pular = 2;
+var vidas_btn = document.querySelector('.vida');
+var pular_btn = document.querySelectorAll('.pular');
+var parar_btn = document.querySelector('.parar');
 var back = document.querySelector('.back');
 var animacao = document.querySelector('.animacao');
 var titulo_materia = document.querySelector('#h2-pergunta');
 var pergunta_tittle = document.getElementById('pergunta_tittle');
+var button = document.querySelector('#confirmar-resposta');
 var opcao_a = document.getElementById('letra_a');
 var opcao_b = document.getElementById('letra_b');
 var opcao_c = document.getElementById('letra_c');
@@ -189,6 +195,7 @@ function animation(pontuacao){
     animacao.style.transform = 'scale(1.3)';
 
     const time = setTimeout(function() {
+        valores();
         animacao.style.display = 'none';
         const timer = setTimeout(function() {
             back.style.display = 'flex';
@@ -408,15 +415,17 @@ function abilitar(){
     opcao_b.disabled = false;
     opcao_c.disabled = false;
     opcao_d.disabled = false;
+    button.disabled = false;
 };
 
 document.addEventListener('keypress', function(e){
-    if(e.which == 13){
+    if(e.which == 13 && button.disabled == false){
         confirmar_resposta()
     }
 }, false);
 
 function confirmar_resposta(){
+    button.disabled = true;
     var sel = '';
     if(opcao_a.style.backgroundColor == 'white'){
         sel = 'opc_a';
@@ -458,7 +467,7 @@ function confirmar_resposta(){
                         }if(opcao_d.innerText == resposta[0]){
                             opcao_d.style.backgroundColor = 'greenyellow';
                         }
-                        time()
+                        quant_vidas();
                     }, 3000)
                 }
                 break;
@@ -487,7 +496,7 @@ function confirmar_resposta(){
                         }if(opcao_d.innerText == resposta[0]){
                             opcao_d.style.backgroundColor = 'greenyellow';
                         }
-                        time();
+                        quant_vidas();
                     }, 3000)
                 }
                 break;
@@ -516,7 +525,7 @@ function confirmar_resposta(){
                         }if(opcao_d.innerText == resposta[0]){
                             opcao_d.style.backgroundColor = 'greenyellow';
                         }
-                        time();
+                        quant_vidas();
                     }, 3000)
                 }
                 break;
@@ -545,7 +554,7 @@ function confirmar_resposta(){
                         }if(opcao_b.innerText == resposta[0]){
                             opcao_b.style.backgroundColor = 'greenyellow';
                         }
-                        time();
+                        quant_vidas();
                     }, 3000)
                 }
                 break; 
@@ -588,4 +597,74 @@ function progresso(pontuacao){
         box[i].style.border = 'none';
     }
     box[pontuacao].style.border = '1px solid white';
+}
+
+function quant_vidas(){
+    vidas--;
+    vidas_btn.innerText = vidas;
+    const timing = setTimeout(function() {
+        if(vidas > 0){
+            time();
+        }else{
+            alert('Suas vidas acabaram, você PERDEU!');
+            location.reload();
+        }
+    }, 1000)
+}
+
+for(let i = 0; i < pular_btn.length; i++){
+    pular_btn[i].addEventListener('click', function(){
+        esc_materia();
+        pular_btn[i].disabled = true;
+    })
+}
+
+parar_btn.addEventListener("click",function(){
+    back.style.display = "none";
+    const timing = setTimeout(function() {
+        switch(pontuacao){
+            case 0: alert('Infelizmente você não ganhou nada!'); break;
+            case 1: alert('Você ganhou R$ 1 MIL'); break;
+            case 2: alert('Você ganhou R$ 2 MIL'); break;
+            case 3: alert('Você ganhou R$ 3 MIL'); break;
+            case 4: alert('Você ganhou R$ 4 MIL'); break;
+            case 5: alert('Você ganhou R$ 5 MIL'); break;
+            case 6: alert('Você ganhou R$ 10 MIL'); break;
+            case 7: alert('Você ganhou R$ 20 MIL'); break;
+            case 8: alert('Você ganhou R$ 30 MIL'); break;
+            case 9: alert('Você ganhou R$ 40 MIL'); break;
+            case 10: alert('Você ganhou R$ 50 MIL'); break;
+            case 11: alert('Você ganhou R$ 100 MIL'); break;
+            case 12: alert('Você ganhou R$ 200 MIL'); break;
+            case 13: alert('Você ganhou R$ 300 MIL'); break;
+            case 14: alert('Você ganhou R$ 400 MIL'); break;
+            case 15: alert('Você ganhou R$ 500 MIL'); break;
+            case 16: balert('Você ganhou R$ 1 MILHÃO'); break;
+        }
+        location.reload();
+    }, 1000)
+})
+
+function valores() {
+    let errar = document.querySelector('.valor_errar');
+    let pare = document.querySelector('.valor_parar');
+    let acertar = document.querySelector('.valor_acertar');
+    switch(pontuacao){
+        case 0: errar.innerText = 'R$ 0'; pare.innerText = 'R$ 0'; acertar.innerText = 'R$ 1 MIL'; break;
+        case 1: errar.innerText = 'R$ 1 MIL'; pare.innerText = 'R$ 1 MIL'; acertar.innerText = 'R$ 2 MIL'; break;
+        case 2: errar.innerText = 'R$ 2 MIL'; pare.innerText = 'R$ 2 MIL'; acertar.innerText = 'R$ 3 MIL'; break;
+        case 3: errar.innerText = 'R$ 3 MIL'; pare.innerText = 'R$ 3 MIL'; acertar.innerText = 'R$ 4 MIL'; break;
+        case 4: errar.innerText = 'R$ 4 MIL'; pare.innerText = 'R$ 4 MIL'; acertar.innerText = 'R$ 5 MIL'; break;
+        case 5: errar.innerText = 'R$ 5 MIL'; pare.innerText = 'R$ 5 MIL'; acertar.innerText = 'R$ 10 MIL'; break;
+        case 6: errar.innerText = 'R$ 5 MIL'; pare.innerText = 'R$ 10 MIL'; acertar.innerText = 'R$ 20 MIL'; break;
+        case 7: errar.innerText = 'R$ 5 MIL'; pare.innerText = 'R$ 20 MIL'; acertar.innerText = 'R$ 30 MIL'; break;
+        case 8: errar.innerText = 'R$ 5 MIL'; pare.innerText = 'R$ 30 MIL'; acertar.innerText = 'R$ 40 MIL'; break;
+        case 9: errar.innerText = 'R$ 5 MIL'; pare.innerText = 'R$ 40 MIL'; acertar.innerText = 'R$ 50 MIL'; break;
+        case 10: errar.innerText = 'R$ 50 MIL'; pare.innerText = 'R$ 50 MIL'; acertar.innerText = 'R$ 100 MIL'; break;
+        case 11: errar.innerText = 'R$ 50 MIL'; pare.innerText = 'R$ 100 MIL'; acertar.innerText = 'R$ 200 MIL'; break;
+        case 12: errar.innerText = 'R$ 50 MIL'; pare.innerText = 'R$ 200 MIL'; acertar.innerText = 'R$ 300 MIL'; break;
+        case 13: errar.innerText = 'R$ 50 MIL'; pare.innerText = 'R$ 300 MIL'; acertar.innerText = 'R$ 400 MIL'; break;
+        case 14: errar.innerText = 'R$ 50 MIL'; pare.innerText = 'R$ 400 MIL'; acertar.innerText = 'R$ 500 MIL'; break;
+        case 15: errar.innerText = 'R$ 500 MIL'; pare.innerText = 'R$ 500 MIL'; acertar.innerText = 'R$ 1 MILHÃO'; break;
+    }
 }
