@@ -193,8 +193,7 @@ function animation(pontuacao){
         case 15: box_animacao.innerText = '1 MILHÃO'; break;
     }
 
-    animacao.style.display = 'flex';
-    animacao.style.transform = 'scale(1.3)';
+    animacao.style.display = 'block';
 
     const time = setTimeout(function() {
         valores();
@@ -204,7 +203,7 @@ function animation(pontuacao){
             progresso(pontuacao);
             esc_materia();
         }, 1000)
-    }, 2900)
+    }, 1300)
 }
 
 function esc_materia(){

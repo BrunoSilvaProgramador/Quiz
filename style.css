@@ -12,6 +12,9 @@ body{
     justify-content: center;
     align-items: center;
     overflow-y: hidden;
+    background-image: url('imagens/back.jpg');
+    background-position: center;
+    background-size: cover;
 }
 
 
@@ -73,9 +76,7 @@ body{
     align-items: center;
     justify-content: center;
     padding: 0 20px;
-    background-image: url('imagens/back.jpg');
-    background-position: center;
-    background-size: cover;
+    background: transparent;
     display: none;
 }
 .perguntas{
@@ -280,22 +281,76 @@ button.vida p{
 }
 
 .animacao{
+    position: relative;
     width:600px;
     height: 250px;
-    padding: 30px;
-    margin: 0 auto;
+    animation-name: animação;
+	animation-duration: 3s;
+	animation-iteration-count: 1;
+	animation-timing-function: linear;
+    transform: scale(1);
+    /* display: none; */
+}
+@keyframes animação{
+	0% /*de 0%*/{
+		transform: scale(1);
+        opacity: 1;
+	}
+    65%{
+        opacity: 1;
+    }
+    80%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
+        transform: scale(1.5);
+    }
+}
+.animacao:before{
+    content: "";
+    position: absolute;
+    width: calc(100% + 0.5em);
+    height: 50%;
+    left: -0.3em;
+    top: -0.3em;
+    border: 1px solid black;
+    border-bottom: 0px;
+    border-radius: 20px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.animacao:after{
+    content: "";
+    position: absolute;
+    width: calc(100% + 0.5em);
+    height: 50%;
+    left: -0.3em;
+    bottom: -0.3em;
+    border: 1px solid black;
+    border-top: 0px;
+    border-radius: 20px;
+    z-index: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.cont_animacao{
+    width: 100%;
+    height: 100%;
+    position: relative;
     display: flex;
     flex-direction: column;
     text-align: center;
     align-items:stretch;
-    background-color: #efb810;
-    color: black;
+    padding: 30px;
+    margin: 0 auto;
+    color: white;
     border-radius: 20px;
-    box-shadow: 0 0 20px 5px black;
-    transition: all 2s linear;
-    /* display: none; */
+    font-family: 'Ropa Sans', sans-serif;
+    border: 1px solid black;
+    background-color: black;
+    z-index: 1;
 }
-
 .box-animacao{
     width: 100%;
     height: 100%;
