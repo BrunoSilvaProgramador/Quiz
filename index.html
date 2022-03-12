@@ -8,6 +8,16 @@
     <title>Jogo</title>
 </head>
 <body>
+    <div class="alert">
+        <div class="back-alert">
+            <div class="container-alert">
+                <p class="alert-nome">Parabens fulano</p>
+                <p class="alert-valor">voce ganhou xxxxx</p>
+                <button class="btn-alert" onclick="sair_alert()">OK</button>
+            </div><!--container-alert-->
+        </div><!--back-alert-->
+    </div><!--alert -->
+
     <div class="back">
         <div class="perguntas">
             <div class="valores">
@@ -81,10 +91,14 @@
 
     <div class="inicio">
         <form class="box-inicio">
-            <h2>QUIZ DO MILHÃO</h2>
-            <p>Seja bem vindo ao QUIZ DO MILHÃO, uma experiência incrível em busca dos conhecimentos mundanos!</p>
-            <p>DIVIRTA-SE!</p>
-            <input type="text" id="name" placeholder="Digite seu nome">
+            <div class="box-texto">
+                <h2>QUIZ DO MILHÃO</h2>
+                <p>Seja bem vindo ao QUIZ DO MILHÃO, uma experiência incrível em busca dos conhecimentos mundanos!</p>
+                <p>DIVIRTA-SE!</p>
+            </div>
+            <div id="box-name">
+                <input type="text" id="name" placeholder="Digite seu nome" maxlength="12">
+            </div><!--name-->
             <div class="confirmar-inicio">
                 <input type="button" id="confirmar-inicio" name="confirmar-inicio" value="COMEÇAR" onclick="confirmar_inicio()">
             </div><!--confirmar-inicio-->

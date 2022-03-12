@@ -1,4 +1,4 @@
-var nome = '';
+var nome = [];
 var resposta = [];
 var abilitado = ['Abilitado','Abilitado','Abilitado'];
 var pontuacao = 0;
@@ -17,6 +17,10 @@ var opcao_a = document.getElementById('letra_a');
 var opcao_b = document.getElementById('letra_b');
 var opcao_c = document.getElementById('letra_c');
 var opcao_d = document.getElementById('letra_d');
+var _alert = document.querySelector('.alert');
+var alert_nome = document.querySelector('.alert-nome');
+var alert_valor = document.querySelector('.alert-valor');
+
 
 var dados = {
     musica: [
@@ -618,29 +622,92 @@ function quant_vidas(){
             time();
         }else{
             alert('Suas vidas acabaram, você PERDEU!');
-            switch(pontuacao){
-                case 0: alert('Infelizmente você não ganhou nada!'); break;
-                case 1: alert('Você ganhou R$ 1 MIL'); break;
-                case 2: alert('Você ganhou R$ 2 MIL'); break;
-                case 3: alert('Você ganhou R$ 3 MIL'); break;
-                case 4: alert('Você ganhou R$ 4 MIL'); break;
-                case 5: alert('Você ganhou R$ 5 MIL'); break;
-                case 6: alert('Você ganhou R$ 5 MIL'); break;
-                case 7: alert('Você ganhou R$ 5 MIL'); break;
-                case 8: alert('Você ganhou R$ 5 MIL'); break;
-                case 9: alert('Você ganhou R$ 5 MIL'); break;
-                case 10: alert('Você ganhou R$ 50 MIL'); break;
-                case 11: alert('Você ganhou R$ 50 MIL'); break;
-                case 12: alert('Você ganhou R$ 50 MIL'); break;
-                case 13: alert('Você ganhou R$ 50 MIL'); break;
-                case 14: alert('Você ganhou R$ 50 MIL'); break;
-                case 15: alert('Você ganhou R$ 500 MIL'); break;
-                case 16: alert('Você ganhou R$ 500 MIL'); break;   
-            }
-            location.reload();
+            saldo()
         }
     }, 1000)
 }
+
+function saldo(){
+    back.style.display = 'none';
+    const timing = setTimeout(function() {
+        _alert.style.display = 'flex';
+        switch(pontuacao){
+            case 0: 
+                alert_nome.innerText = `Que pena ${nome[0]}!`;
+                alert_valor.innerText = 'Infelizmente você não ganhou nada!'; 
+                break;
+            case 1: 
+                alert_nome.innerText = `Parabéns ${nome[0]}!`;
+                alert_valor.innerText = 'Você ganhou R$ 1 MIL'; 
+                break;
+            case 2:
+                alert_nome.innerText = `Parabéns ${nome[0]}!`;
+                alert_valor.innerText = 'Você ganhou R$ 2 MIL'; 
+                break;
+            case 3: 
+                alert_nome.innerText = `Parabéns ${nome[0]}!`;
+                alert_valor.innerText = 'Você ganhou R$ 3 MIL'; 
+                break;
+            case 4: 
+                alert_nome.innerText = `Parabéns ${nome[0]}!`;
+                alert_valor.innerText = 'Você ganhou R$ 4 MIL'; 
+                break;
+            case 5:
+                alert_nome.innerText = `Parabéns ${nome[0]}!`;
+                alert_valor.innerText = 'Você ganhou R$ 5 MIL'; 
+                break; 
+            case 6:
+                alert_nome.innerText = `Parabéns ${nome[0]}!`;
+                alert_valor.innerText = 'Você ganhou R$ 5 MIL'; 
+                break;
+            case 7:
+                alert_nome.innerText = `Parabéns ${nome[0]}!`;
+                alert_valor.innerText = 'Você ganhou R$ 5 MIL'; 
+                break;
+            case 8:
+                alert_nome.innerText = `Parabéns ${nome[0]}!`;
+                alert_valor.innerText = 'Você ganhou R$ 5 MIL'; 
+                break;
+            case 9:
+                alert_nome.innerText = `Parabéns ${nome[0]}!`;
+                alert_valor.innerText = 'Você ganhou R$ 5 MIL'; 
+                break;
+            case 10:
+                alert_nome.innerText = `Parabéns ${nome[0]}!`;
+                alert_valor.innerText = 'Você ganhou R$ 50 MIL'; 
+                break;
+            case 11:
+                alert_nome.innerText = `Parabéns ${nome[0]}!`;
+                alert_valor.innerText = 'Você ganhou R$ 50 MIL'; 
+                break;
+            case 12:
+                alert_nome.innerText = `Parabéns ${nome[0]}!`;
+                alert_valor.innerText = 'Você ganhou R$ 50 MIL'; 
+                break;
+            case 13:
+                alert_nome.innerText = `Parabéns ${nome[0]}!`;
+                alert_valor.innerText = 'Você ganhou R$ 50 MIL'; 
+                break;
+            case 14:
+                alert_nome.innerText = `Parabéns ${nome[0]}!`;
+                alert_valor.innerText = 'Você ganhou R$ 50 MIL'; 
+                break;
+            case 15:
+                alert_nome.innerText = `Parabéns ${nome[0]}!`;
+                alert_valor.innerText = 'Você ganhou R$ 500 MIL'; 
+                break;
+            case 16:
+                alert_nome.innerText = `Parabéns ${nome[0]}!`;
+                alert_valor.innerText = 'Você ganhou R$ 500 MIL'; 
+                break;  
+        }
+    }, 1000)
+}
+function sair_alert(){
+    _alert.style.display = 'none';
+    location.reload();
+}
+
 
 for(let i = 0; i < pular_btn.length; i++){
     pular_btn[i].addEventListener('click', function(){
@@ -653,26 +720,77 @@ for(let i = 0; i < pular_btn.length; i++){
 parar_btn.addEventListener("click",function(){
     back.style.display = "none";
     const timing = setTimeout(function() {
+        _alert.style.display = 'flex';
         switch(pontuacao){
-            case 0: alert('Infelizmente você não ganhou nada!'); break;
-            case 1: alert('Você ganhou R$ 1 MIL'); break;
-            case 2: alert('Você ganhou R$ 2 MIL'); break;
-            case 3: alert('Você ganhou R$ 3 MIL'); break;
-            case 4: alert('Você ganhou R$ 4 MIL'); break;
-            case 5: alert('Você ganhou R$ 5 MIL'); break;
-            case 6: alert('Você ganhou R$ 10 MIL'); break;
-            case 7: alert('Você ganhou R$ 20 MIL'); break;
-            case 8: alert('Você ganhou R$ 30 MIL'); break;
-            case 9: alert('Você ganhou R$ 40 MIL'); break;
-            case 10: alert('Você ganhou R$ 50 MIL'); break;
-            case 11: alert('Você ganhou R$ 100 MIL'); break;
-            case 12: alert('Você ganhou R$ 200 MIL'); break;
-            case 13: alert('Você ganhou R$ 300 MIL'); break;
-            case 14: alert('Você ganhou R$ 400 MIL'); break;
-            case 15: alert('Você ganhou R$ 500 MIL'); break;
-            case 16: alert('Você ganhou R$ 1 MILHÃO'); break;
+            case 0: 
+            alert_nome.innerText = `Que pena ${nome[0]}!`;
+            alert_valor.innerText = 'Infelizmente você não ganhou nada!'; 
+            break;
+        case 1: 
+            alert_nome.innerText = `Parabéns ${nome[0]}!`;
+            alert_valor.innerText = 'Você ganhou R$ 1 MIL'; 
+            break;
+        case 2:
+            alert_nome.innerText = `Parabéns ${nome[0]}!`;
+            alert_valor.innerText = 'Você ganhou R$ 2 MIL'; 
+            break;
+        case 3: 
+            alert_nome.innerText = `Parabéns ${nome[0]}!`;
+            alert_valor.innerText = 'Você ganhou R$ 3 MIL'; 
+            break;
+        case 4: 
+            alert_nome.innerText = `Parabéns ${nome[0]}!`;
+            alert_valor.innerText = 'Você ganhou R$ 4 MIL'; 
+            break;
+        case 5:
+            alert_nome.innerText = `Parabéns ${nome[0]}!`;
+            alert_valor.innerText = 'Você ganhou R$ 5 MIL'; 
+            break; 
+        case 6:
+            alert_nome.innerText = `Parabéns ${nome[0]}!`;
+            alert_valor.innerText = 'Você ganhou R$ 10 MIL'; 
+            break;
+        case 7:
+            alert_nome.innerText = `Parabéns ${nome[0]}!`;
+            alert_valor.innerText = 'Você ganhou R$ 20 MIL'; 
+            break;
+        case 8:
+            alert_nome.innerText = `Parabéns ${nome[0]}!`;
+            alert_valor.innerText = 'Você ganhou R$ 30 MIL'; 
+            break;
+        case 9:
+            alert_nome.innerText = `Parabéns ${nome[0]}!`;
+            alert_valor.innerText = 'Você ganhou R$ 40 MIL'; 
+            break;
+        case 10:
+            alert_nome.innerText = `Parabéns ${nome[0]}!`;
+            alert_valor.innerText = 'Você ganhou R$ 50 MIL'; 
+            break;
+        case 11:
+            alert_nome.innerText = `Parabéns ${nome[0]}!`;
+            alert_valor.innerText = 'Você ganhou R$ 100 MIL'; 
+            break;
+        case 12:
+            alert_nome.innerText = `Parabéns ${nome[0]}!`;
+            alert_valor.innerText = 'Você ganhou R$ 200 MIL'; 
+            break;
+        case 13:
+            alert_nome.innerText = `Parabéns ${nome[0]}!`;
+            alert_valor.innerText = 'Você ganhou R$ 300 MIL'; 
+            break;
+        case 14:
+            alert_nome.innerText = `Parabéns ${nome[0]}!`;
+            alert_valor.innerText = 'Você ganhou R$ 400 MIL'; 
+            break;
+        case 15:
+            alert_nome.innerText = `Parabéns ${nome[0]}!`;
+            alert_valor.innerText = 'Você ganhou R$ 500 MIL'; 
+            break;
+        case 16:
+            alert_nome.innerText = `Parabéns ${nome[0]}!`;
+            alert_valor.innerText = 'Você ganhou R$ 1 MILHÃO'; 
+            break;
         }
-        location.reload();
     }, 1000)
 })
 
