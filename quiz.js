@@ -49,40 +49,304 @@ var dados = {
             resp: 'Michael Jackson'
         },
         {
-            prg: '',
-            str_a: '',
-            str_b: '', 
-            str_c: '',
-            str_d: '',
-            resp: ''
+            prg: 'A música "Vou Deixar" do grupo Skank, foi trilha sonora de qual novela em 2004 ?',
+            str_a: 'Da Cor Do Pecado',
+            str_b: 'Caminho da Indias', 
+            str_c: 'Beleza Pura',
+            str_d: 'Malhação',
+            resp: 'Da Cor Do Pecado'
         },
+        {
+            prg: 'Quem compôs a música "Que País é Esse" ?',
+            str_a: 'Renato Russo',
+            str_b: 'Caetano Veloso', 
+            str_c: 'Peninha',
+            str_d: 'Cássia Eller',
+            resp: 'Renato Russo'
+        },
+        {
+            prg: 'Qual o nome do vocalista da banda "Engenheiros do Hawaii"',
+            str_a: 'Renato Russo',
+            str_b: 'Herbert Viana', 
+            str_c: 'Humberto Gessinger',
+            str_d: 'Marcelo D2',
+            resp: 'Humberto Gessinger'
+        },
+        {
+            prg: 'Que cantor, compositor e violinista brasileiro largou o futebol para se dedicar a música ?',
+            str_a: 'Chico Buarque',
+            str_b: 'Djavan', 
+            str_c: 'Caetano Veloso',
+            str_d: 'Toquinho',
+            resp: 'B- Djavan'
+        },
+        {
+            prg: 'Quem foi o vacalista do grupo "RPM" ?',
+            str_a: 'Herbert Viana',
+            str_b: 'Renato Russo', 
+            str_c: 'Samuel Rosa',
+            str_d: 'Paulo Ricardo',
+            resp: 'Paulo Ricardo'
+        },
+        {
+            prg: 'Qual grupo fez sucesso com a música "Eu Gosto de Mulher" ?',
+            str_a: 'Mamonas Assassinas',
+            str_b: 'RPM', 
+            str_c: 'Engenheiros do Hawaii',
+            str_d: 'Ultraje a Rigor',
+            resp: 'Ultraje a Rigor'
+        },
+        {
+            prg: 'Qual banda nacional gravou a música "Meninas e Meninos" ?',
+            str_a: 'Legiao Urbana',
+            str_b: 'RPM', 
+            str_c: 'Barão Vermelho',
+            str_d: 'Blitz',
+            resp: 'Legião Urbana'
+        },
+        {
+            prg: 'Qual música da cantora Ivete Sangalo fez parte da trilha sonora da novela "Uga Uga" ?',
+            str_a: 'Arerê',
+            str_b: 'Se eu não te amasse tanto assim', 
+            str_c: 'Canibal',
+            str_d: 'Carro Velho',
+            resp: 'Se eu não te amasse tanto assim'
+        },
+        {
+            prg: 'Qual dupla sertaneja ganhou o disco de ouro em 2007 com o cd "Coisa de Deus" ?',
+            str_a: 'Gian e Giovani',
+            str_b: 'Rick e Renner', 
+            str_c: 'Bruno e Marrone',
+            str_d: 'Chitãozinho e Xororó',
+            resp: 'Rick e Renner'
+        },
+        {
+            prg: 'Qual é o sucesso da novela "Laços de Família" gravado pela banda Skank ?',
+            str_a: 'Três lados',
+            str_b: 'Balada do amor inabalável', 
+            str_c: 'Pacato cidadão',
+            str_d: 'Resposta',
+            resp: 'Balada do amor inabalável'
+        },
+        {
+            prg: 'Que canto e compositor brasileiro gravou os seguintes sucessos: "Meu Bem Querer, Samurai, entre outros" ?',
+            str_a: 'Djavan',
+            str_b: 'Fábio Júnior', 
+            str_c: 'Fagner',
+            str_d: 'Gilberto Gil',
+            resp: 'Djavan'
+        },
+        {
+            prg: 'Qual o nome da vocalista do grupo musical "Kid Abelha" ?',
+            str_a: 'Ivete Sangalo',
+            str_b: 'Carla Visi', 
+            str_c: 'Carla Cristina',
+            str_d: 'Paula Toller',
+            resp: 'Paula Toller'
+        },
+        {
+            prg: 'Qual cantor e compositor, considerado Rei do Pop, morreu em 25/06/2009 ?',
+            str_a: 'Michael Jackson',
+            str_b: 'Frank Sinatra', 
+            str_c: 'Raul Seixas',
+            str_d: 'Elvis Presley',
+            resp: 'Michael Jackson'
+        },
+        {
+            prg: 'Com qual cantor internacional Zezé Di Camargo e Luciano gravaram a música "Dois Amigos" ?',
+            str_a: 'Luis Miguel',
+            str_b: 'Julio Iglesias', 
+            str_c: 'Alejandro Sanz',
+            str_d: 'Ricky Martin',
+            resp: 'Julio Iglesias'
+        },
+        {
+            prg: 'Quais cantores gravaram a música "Ainda Lembro" ?',
+            str_a: 'Ed Motta e Gal Costa',
+            str_b: 'Marisa Monte e Arnaldo Antunes', 
+            str_c: 'Ed Motta e Marisa Monte',
+            str_d: 'Arnaldo Antunes e Simone',
+            resp: 'Ed Motta e Marisa Monte'
+        },
+        {
+            prg: 'Em que cidade surgiu o grupo Skank ?',
+            str_a: 'São Paulo',
+            str_b: 'Rio de Janeiro', 
+            str_c: 'Florianópolis',
+            str_d: 'Belo Horizonte',
+            resp: 'Belo Horizonte'
+        },
+        {
+            prg: 'Como foi chamada a época liderada por Roberto Carlos na década de 60 ?',
+            str_a: 'Tropicália',
+            str_b: 'Bossa Nova', 
+            str_c: 'Jovem Guarda',
+            str_d: 'Romântica',
+            resp: 'Joven Guarda'
+        }
     ],
 
     esporte: [
         {
-            prg: 'esporte 1 ?',
-            str_a: 'esporte 1a',
-            str_b: 'esporte 1b', 
-            str_c: 'esporte 1c',
-            str_d: 'esporte 1d',
-            resp: 'esporte 1a'
+            prg: 'Qual foi o primerio apelido do jogador Pelé ?',
+            str_a: 'Pelé',
+            str_b: 'Fumaça', 
+            str_c: 'Gasolina',
+            str_d: 'Zeca',
+            resp: 'Gasolina'
         },
         {
-            prg: 'esporte 2 ?',
-            str_a: 'esporte 2a',
-            str_b: 'esporte 2b', 
-            str_c: 'esporte 2c',
-            str_d: 'esporte 2d',
-            resp: 'esporte 2a'
+            prg: 'Quantos atletas formam o time do Pólo Aquático ?',
+            str_a: '6',
+            str_b: '7', 
+            str_c: '8',
+            str_d: '9',
+            resp: '7'
         },
         {
-            prg: 'esporte 3 ?',
-            str_a: 'esporte 3a',
-            str_b: 'esporte 3b', 
-            str_c: 'esporte 3c',
-            str_d: 'esporte 3d',
-            resp: 'esporte 3a'
-        }
+            prg: 'Qual foi o time que se consagrou campeão do Brasileirão de 1999 ?',
+            str_a: 'São Paulo',
+            str_b: 'Palmeiras', 
+            str_c: 'Portuguesa',
+            str_d: 'Corinthians',
+            resp: 'Corinthians'
+        },
+        {
+            prg: 'Quantos GPS de Fórmula 1 Ayrton Senna venceu em sua carreira ?',
+            str_a: '66',
+            str_b: '41', 
+            str_c: '23',
+            str_d: '35',
+            resp: '41'
+        },
+        {
+            prg: 'Qual goleiro da seleção brasileira de futebol foi bicampeão de 1962 ?',
+            str_a: 'Leão',
+            str_b: 'Félix', 
+            str_c: 'Gilmar',
+            str_d: 'Carlos',
+            resp: 'Gilmar'
+        },
+        {
+            prg: 'Quem venceu a Champions League de 2008 ?',
+            str_a: 'Real Madrid',
+            str_b: 'Manchester United', 
+            str_c: 'Chelsea',
+            str_d: 'Barcelona',
+            resp: 'Manchester United'
+        },
+        {
+            prg: 'Qual seleção foi a campeã mundial de 2006 ?',
+            str_a: 'Alemanha',
+            str_b: 'França', 
+            str_c: 'Itália',
+            str_d: 'Brasil',
+            resp: 'Itália'
+        },
+        {
+            prg: 'Quais os maiores campeões do Campeonato Brasileiro ?',
+            str_a: 'Corinthians e Flamengo',
+            str_b: 'São Paulo e Palmeiras', 
+            str_c: 'Fluminense e Vasco',
+            str_d: 'Santos e Palmeiras',
+            resp: 'Santos e Palmeiras'
+        },
+        {
+            prg: 'Qual time foi campeão da NBA 2011 ?',
+            str_a: 'Miami Heat',
+            str_b: 'Boston Celtics', 
+            str_c: 'San Antonio Spurs',
+            str_d: 'Dallas Mavericks',
+            resp: 'Dallas Mavericks'
+        },
+        {
+            prg: 'Qual o maior vencedor de Grand Slam em simples da história ?',
+            str_a: 'Bjorn Borg',
+            str_b: 'Roger Federer', 
+            str_c: 'Rafael Nadal',
+            str_d: 'Novak Djokovic',
+            resp: 'Roger Federer'
+        },
+        {
+            prg: 'Quem venceu o Australian Open de 2014 ?',
+            str_a: 'Stanislas Wawrinka',
+            str_b: 'Rafael Nadal', 
+            str_c: 'Novak Djokovic',
+            str_d: 'Roger Federer',
+            resp: 'Stanislas Wawrinka'
+        },
+        {
+            prg: 'Quem venceu o Mundial de Clubes de 2005 ?',
+            str_a: 'Liverpool',
+            str_b: 'Real Madrid', 
+            str_c: 'São Paulo',
+            str_d: 'Santos',
+            resp: 'São Paulo'
+        },
+        {
+            prg: 'Qual foi o humilhante placar sofrido pelo Santos no último confronto com o Barcelona ?',
+            str_a: '10 x 0',
+            str_b: '6 x 2', 
+            str_c: '8 x 0',
+            str_d: '7 x 0',
+            resp: '8 x 0'
+        },
+        {
+            prg: 'Qual foi a seleção adversária da Argentina nas oitavas de final da Copa do Mundo de 2014 ?',
+            str_a: 'Brasil',
+            str_b: 'Suiça', 
+            str_c: 'Chile',
+            str_d: 'Japão',
+            resp: 'Suiça'
+        },
+        {
+            prg: 'Qual seleção venceu o Campeonato Mundial de Volêi Masculino de 2014 ?',
+            str_a: 'Brasil',
+            str_b: 'Itália', 
+            str_c: 'Polônia',
+            str_d: 'Rússia',
+            resp: 'Polônia'
+        },
+        {
+            prg: 'Qual a seleção feminina de vôlei campeã olímpica de 2014 ?',
+            str_a: 'Estados Unidos',
+            str_b: 'Rússia', 
+            str_c: 'China',
+            str_d: 'Brasil',
+            resp: 'Brasil'
+        },
+        {
+            prg: 'Olimpíadas de Inverno: Qual cidade e país a sediou em 2014 ?',
+            str_a: 'Londres, Inglaterra',
+            str_b: 'Berna, Suiça', 
+            str_c: 'Sochi, Rússia',
+            str_d: 'Vancouver, Canadá',
+            resp: 'Sochi, Rússia'
+        },
+        {
+            prg: 'Quem venceu o Masters 1000 de Xangai 2014 ?',
+            str_a: 'Novak Djokovic',
+            str_b: 'Juan Martín Del Potro', 
+            str_c: 'Rafael Nadal',
+            str_d: 'Roger Federer',
+            resp: 'Roger Federer'
+        },
+        {
+            prg: 'Quem venceu o Mundial de Clubes de 2012 ?',
+            str_a: 'Chelsea',
+            str_b: 'Barcelona', 
+            str_c: 'Real Madrid',
+            str_d: 'Corinthians',
+            resp: 'Corinthians'
+        },
+        {
+            prg: 'Quem venceu o Campeonato Mundial Interclubes de Basquete de 2014 ?',
+            str_a: 'Real Madrid',
+            str_b: 'Flamengo', 
+            str_c: 'Barcelona',
+            str_d: 'Virtus Roma',
+            resp: 'Flamengo'
+        },   
     ],
 
     geografia: [

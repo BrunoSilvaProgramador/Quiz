@@ -526,3 +526,10 @@ button.vida p{
     width: 100%;
     font-size: 60px;
 }
+
+
+@media screen and (max-width: 1200px){
+    .progresso{
+        display: none;
+    }
+}
