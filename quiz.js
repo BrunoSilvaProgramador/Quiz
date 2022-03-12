@@ -47,7 +47,15 @@ var dados = {
             str_c: 'Frank Sinatra',
             str_d: 'George Michael',
             resp: 'Michael Jackson'
-        }
+        },
+        {
+            prg: '',
+            str_a: '',
+            str_b: '', 
+            str_c: '',
+            str_d: '',
+            resp: ''
+        },
     ],
 
     esporte: [
