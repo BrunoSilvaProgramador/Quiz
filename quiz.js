@@ -350,84 +350,15 @@ var dados = {
     ],
 
     geografia: [
-        {
-            prg: 'geografia 1 ?',
-            str_a: 'geografia 1a',
-            str_b: 'geografia 1b', 
-            str_c: 'geografia 1c',
-            str_d: 'geografia 1d',
-            resp: 'geografia 1a'
-        },
-        {
-            prg: 'geografia 2 ?',
-            str_a: 'geografia 2a',
-            str_b: 'geografia 2b', 
-            str_c: 'geografia 2c',
-            str_d: 'geografia 2d',
-            resp: 'geografia 2a'
-        },
-        {
-            prg: 'geografia 3 ?',
-            str_a: 'geografia 3a',
-            str_b: 'geografia 3b', 
-            str_c: 'geografia 3c',
-            str_d: 'geografia 3d',
-            resp: 'geografia 3a'
-        }
+        
     ],
 
     historia: [
-        {
-            prg: 'historia 1 ?',
-            str_a: 'historia 1a',
-            str_b: 'historia 1b', 
-            str_c: 'historia 1c',
-            str_d: 'historia 1d',
-            resp: 'historia 1a'
-        },
-        {
-            prg: 'historia 2 ?',
-            str_a: 'historia 2a',
-            str_b: 'historia 2b', 
-            str_c: 'historia 2c',
-            str_d: 'historia 2d',
-            resp: 'historia 2a'
-        },
-        {
-            prg: 'historia 3 ?',
-            str_a: 'historia 3a',
-            str_b: 'historia 3b', 
-            str_c: 'historia 3c',
-            str_d: 'historia 3d',
-            resp: 'historia 3a'
-        }
+        
     ],
 
     conhecimentos_gerais: [
-        {
-            prg: 'conhecimentos_gerais 1 ?',
-            str_a: 'conhecimentos_gerais 1a',
-            str_b: 'conhecimentos_gerais 1b', 
-            str_c: 'conhecimentos_gerais 1c',
-            str_d: 'conhecimentos_gerais 1d',
-            resp: 'conhecimentos_gerais 1a'
-        },
-        {
-            prg: 'conhecimentos_gerais 2 ?',
-            str_a: 'conhecimentos_gerais 2a',
-            str_b: 'conhecimentos_gerais 2b', 
-            str_c: 'conhecimentos_gerais 2c',
-            str_d: 'conhecimentos_gerais 2d',
-            resp: 'conhecimentos_gerais 2a'
-        },
-        {
-            prg: 'conhecimentos_gerais 3 ?',
-            str_a: 'conhecimentos_gerais 3a',
-            str_b: 'conhecimentos_gerais 3b', 
-            str_c: 'conhecimentos_gerais 3c',
-            str_d: 'conhecimentos_gerais 3d',
-            resp: 'conhecimentos_gerais 3a'
-        }
+       
     ]
 };
 
@@ -884,6 +815,9 @@ function progresso(pontuacao){
         box[i].style.border = 'none';
     }
     box[pontuacao].style.border = '2px solid rgb(47, 0, 255)';
+    if(pontuacao == 16){
+        parar_aqui()
+    }
 }
 
 function quant_vidas(){
@@ -989,7 +923,9 @@ for(let i = 0; i < pular_btn.length; i++){
     })
 }
 
-parar_btn.addEventListener("click",function(){
+parar_btn.addEventListener('click', parar_aqui);
+
+function parar_aqui(){
     back.style.display = "none";
     const timing = setTimeout(function() {
         _alert.style.display = 'flex';
@@ -1064,7 +1000,10 @@ parar_btn.addEventListener("click",function(){
             break;
         }
     }, 1000)
-})
+}
+
+
+
 
 function valores() {
     let errar = document.querySelector('.valor_errar');
