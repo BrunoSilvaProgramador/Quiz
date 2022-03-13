@@ -513,7 +513,7 @@ button.vida p{
     color: white;
     border-radius: 20px;
     font-family: 'Ropa Sans', sans-serif;
-    font-size: clamp(0.5em, 0.5em + 2vw, 2em);
+    font-size: clamp(0.2em, 0.2em + 1.5vw, 1.5em);
     border: 1px solid black;
     background-color: black;
     z-index: 1;
