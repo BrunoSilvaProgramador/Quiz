@@ -562,6 +562,10 @@ button.vida p{
         width: 85%;
     }
 }
+@media screen and (max-width: 500px){
+    .cont_animacao{
+        font-size: 9px;
+}
 
 @media screen and (max-height: 668px){
     .progresso{
